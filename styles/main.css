@@ -1,0 +1,24 @@
+button, html, input, select, textarea {
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+}
+
+.main-nav {
+  background-color: #fdfdfd !important;
+  border-bottom: solid 2px #eee;
+  color: #3F51B5 !important;
+}
+
+.main-nav > .md-toolbar-tools {
+  height: 80px;
+  max-height: 80px;
+  padding-left: 64px;
+  padding-right: 64px;
+}
+
+.main-nav .dws-logo{
+  height: 60px;
+}
+
+.main-nav .headline {
+  padding: 0 6px;
+}

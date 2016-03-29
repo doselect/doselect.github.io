@@ -1,4 +1,4 @@
-angular.module('dws')
+angular.module('dws', ['ngMaterial'])
 
 .controller('appCtrl', ['$scope', function ($scope) {
 
