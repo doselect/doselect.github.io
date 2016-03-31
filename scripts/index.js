@@ -42,7 +42,7 @@ angular.module('dws', ['vtortola.ng-terminal', 'ngMaterial', 'LocalStorageModule
     setTimeout(function () {
       $scope.$broadcast('terminal-output', {
         output: true,
-        text: ['Welcome to DoSelect Web Services CLI',
+        text: ['Welcome to DoSelect Web Services CLI (Free Tier)',
           '',
           "Please type 'help' to open a list of commands"],
         breakLine: true

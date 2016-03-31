@@ -96,8 +96,10 @@ angular.module('ng-terminal-example.command.implementations', ['ng-terminal-exam
       command: 'free',
       description: ['Displays amount of free and used memory in the system'],
       handle: function (session) {
-        var a = ['user2dfe']
-        session.output.push({ output: true, text: [a.join(' ')], breakLine: true })
+        var a = ['              total        used        free      shared  buff/cache   available',
+                 'Mem:        3904260     2182724      625416      481044     1096120     1174224',
+                 'Swap:       4194300      464564     3729736']
+        session.output.push({ output: true, text: [a.join('\n')]})
       }
     })
 
