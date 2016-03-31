@@ -1,4 +1,4 @@
-angular.module('dws', ['vtortola.ng-terminal', 'ng-material', 'ng-terminal-example.command.tools', 'ng-terminal-example.command.implementations', 'ng-terminal-example.command.filesystem'])
+angular.module('dws', ['vtortola.ng-terminal', 'ngMaterial', 'LocalStorageModule', 'ng-terminal-example.command.tools', 'ng-terminal-example.command.implementations', 'ng-terminal-example.command.filesystem'])
   
   .provider('$ga', function () {
     window['GoogleAnalyticsObject'] = 'ga'
@@ -7,7 +7,6 @@ angular.module('dws', ['vtortola.ng-terminal', 'ng-material', 'ng-terminal-examp
     var script = document.createElement('script')
     var prevScript = document.getElementsByTagName('script')[0]
     script.async = 1
-    script.src = '//www.google-analytics.com/analytics_debug.js'
     prevScript.parentNode.insertBefore(script, prevScript)
 
     var provider = function () {
@@ -30,7 +29,14 @@ angular.module('dws', ['vtortola.ng-terminal', 'ng-material', 'ng-terminal-examp
     return provider()
   })
 
-  .controller('terminalCtrl', ['$scope', '$ga', 'commandBroker', '$rootScope', function ($scope, $ga, commandBroker, $rootScope) {
+  .controller('terminalCtrl', ['$scope', '$ga', 'commandBroker', '$rootScope', 'localStorageService',
+    function ($scope, $ga, commandBroker, $rootScope, localStorageService) {
+    console.log('Joe, If you ended up here thinking there should be something hidden, Meh! We\'re not obvious humans! Dig deeper!')
+    if (localStorageService.get('Ah! There you are!') == undefined) {
+      localStorageService.set('Ah! There you are!', 'Check the next key')
+      localStorageService.set('Come work with us!', 'https://doselect.com/job/doselect-f0n50-front-end-developer')
+    }
+
     $rootScope.theme = 'modern'
 
     setTimeout(function () {
@@ -97,12 +103,10 @@ angular.module('dws', ['vtortola.ng-terminal', 'ng-material', 'ng-terminal-examp
   }])
 
   .config(['$gaProvider', function ($gaProvider) {
-    $gaProvider.ga('create', 'UA-53263543-1', 'auto')
+    $gaProvider.ga('create', 'UA-75813159-1', 'auto')
   }])
 
   .config(['terminalConfigurationProvider', function (terminalConfigurationProvider) {
-    terminalConfigurationProvider.config('modern').outputDelay = 10
+    terminalConfigurationProvider.config('modern').outputDelay = 0
     terminalConfigurationProvider.config('modern').allowTypingWriteDisplaying = false
-    terminalConfigurationProvider.config('modern').typeSoundUrl = 'example/content/type.wav'
-    terminalConfigurationProvider.config('modern').startSoundUrl = 'example/content/start.wav'
   }])

@@ -387,25 +387,6 @@
     };
     commandBrokerProvider.appendCommandHandler(lsCommand());
 
-    var catCommand = function () {
-        var me = {};
-        var fs = null;
-        me.command = 'cat';
-        me.description = ['Reads file.', "Syntax: cat <fileName>", "Example: cat file.txt"];
-        me.init = ['fileSystem', function (fileSystem) {
-            fs = fileSystem;
-        }];
-        me.handle = function (session, path) {
-            if (!path)
-                throw new Error("A file name is required");
-            var content = fs.readFile(path);
-            var outtext = content ? content.split('\n') : [];
-            session.output.push({ output: true, text: outtext, breakLine: true });
-         }
-        return me;
-    };
-    commandBrokerProvider.appendCommandHandler(catCommand());
-
     var rmCommand = function () {
         var me = {};
         var fs = null;

@@ -3,43 +3,107 @@ angular.module('ng-terminal-example.command.implementations', ['ng-terminal-exam
   .config(['commandBrokerProvider', function (commandBrokerProvider) {
     commandBrokerProvider.appendCommandHandler({
       command: 'version',
-      description: ['Shows this software version.'],
+      description: ['Displays DWS CLI Version.'],
       handle: function (session) {
-        session.output.push({ output: true, text: ['Version 0.1 Beta'], breakLine: true })
+        session.output.push({ output: true, text: ['v0.1.0'], breakLine: true })
       }
     })
 
     commandBrokerProvider.appendCommandHandler({
       command: 'clear',
-      description: ['Clears the screen.'],
+      description: ['Clears the screen'],
       handle: function (session) {
         session.commands.push({ command: 'clear' })
       }
     })
 
     commandBrokerProvider.appendCommandHandler({
-      command: 'echo',
-      description: ['Echoes input.'],
+      command: 'cat',
+      description: ['Meh! Obvious!'],
       handle: function (session) {
-        var a = Array.prototype.slice.call(arguments, 1)
+        session.commands.push({ command: 'cat' })
+
+        // Cat
+        new Audio('assets/cat-meow.mp3').play() 
+        var a =  [' ','           /\\-/\\                ',
+                      '          /a a  \\                                 _                ',
+                      '         =\\ Y  =/-~~~~~~-,_______________________/ )                ',
+                      '           `^--`          ________________________/                ',
+                      '             \\           /                ',
+                      '             ||  |---`\\  \\                   ',
+                      '            (_(__|   ((__|                 ', ' ']
+        session.output.push({ output: true, text: [a.join('\n')]})
+
+      }
+    })
+
+    commandBrokerProvider.appendCommandHandler({
+      command: 'date',
+      description: ['Displays the current date and time'],
+      handle: function (session) {
+        var a = [Date()]
         session.output.push({ output: true, text: [a.join(' ')], breakLine: true })
       }
     })
 
     commandBrokerProvider.appendCommandHandler({
-      command: 'eval',
-      description: ['Evaluates input as javascript.', 'Example: eval alert(1)'],
-      handle: function (session, param) {
-        var a = Array.prototype.slice.call(arguments, 1)
-        var param = eval(a.join(' '))
-        param = param ? param.toString() : ''
-        session.output.push({ output: true, text: [param], breakLine: true })
+      command: 'ifconfig',
+      description: ['Displays the wireless network configuration'],
+      handle: function (session) {
+        var a = [' ', ' enp2s0    no wireless extensions.                                   ',
+                      ' docker0   no wireless extensions.                                   ',
+                      ' lo        no wireless extensions.                                   ',
+                      ' wlp3s0    IEEE 802.11bgn  ESSID:"Random 223e"                                     ',
+                      '           Mode:Managed  Frequency:2.457 GHz  Access Point: C1:3A:3E:2F:B0:95                                      ',
+                      '           Bit Rate=225 Mb/s   Tx-Power=15 dBm                                      ',
+                      '           Retry short limit:7   RTS thr:off   Fragment thr:off                                   ',
+                      '           Power Management:off                                   ',
+                      '           Link Quality=65/70  Signal level=-45 dBm                                     ',
+                      '           Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0                                   ',
+                      '           Tx excessive retries:0  Invalid misc:45   Missed beacon:0                                   ']
+        session.output.push({ output: true, text: [a.join('\n')]})
+      }
+    })
+
+    commandBrokerProvider.appendCommandHandler({
+      command: 'uname',
+      description: ['Displays system information'],
+      handle: function (session) {
+        var a = ['Linux']
+        session.output.push({ output: true, text: [a.join(' ')], breakLine: true })
+      }
+    })
+
+    commandBrokerProvider.appendCommandHandler({
+      command: 'who',
+      description: ['Displays effective userid'],
+      handle: function (session) {
+        var a = ['user2dfe  tty1         ', Date()]
+        session.output.push({ output: true, text: [a.join(' ')], breakLine: true })
+      }
+    })
+
+    commandBrokerProvider.appendCommandHandler({
+      command: 'whoami',
+      description: ['Displays effective userid'],
+      handle: function (session) {
+        var a = ['user2dfe']
+        session.output.push({ output: true, text: [a.join(' ')], breakLine: true })
+      }
+    })
+
+    commandBrokerProvider.appendCommandHandler({
+      command: 'free',
+      description: ['Displays amount of free and used memory in the system'],
+      handle: function (session) {
+        var a = ['user2dfe']
+        session.output.push({ output: true, text: [a.join(' ')], breakLine: true })
       }
     })
 
     commandBrokerProvider.appendCommandHandler({
       command: 'break',
-      description: ['Tests how commands are broken down in segments.', "Example: break 'aaa aaa' aaa aaa"],
+      description: ['Tests how commands are broken down in segments.', "Example: break 'foo bar' baz foo"],
       handle: function (session) {
         var a = Array.prototype.slice.call(arguments, 1)
         session.output.push({ output: true, text: a, breakLine: true })
@@ -103,7 +167,7 @@ angular.module('ng-terminal-example.command.implementations', ['ng-terminal-exam
       var me = {}
       var ga = null
       me.command = 'su'
-      me.description = ['Changes the  user identity.', 'Syntax: su <userName>', 'Example: su vtortola']
+      me.description = ['Changes the  user identity.', 'Syntax: su <userName>', 'Example: su adam']
       me.init = ['$ga', function ($ga) {
         ga = $ga
       }]
@@ -126,7 +190,7 @@ angular.module('ng-terminal-example.command.implementations', ['ng-terminal-exam
       var me = {}
       var _ga = null
       me.command = 'feedback'
-      me.description = ['Sends a feedback message to the author.', 'Example: feedback This application is awesome! Where may I donate?']
+      me.description = ['Sends a feedback message to DWS Support team']
       me.init = ['$ga', function ($ga) {
         _ga = $ga
       }]
@@ -135,7 +199,7 @@ angular.module('ng-terminal-example.command.implementations', ['ng-terminal-exam
         param = param.join(' ')
         var outText = []
         if (!param) {
-          outText.push("You need to provide a message, type 'help feedback' to get a hint.")
+          outText.push("You need to provide a message")
         } else {
           outText.push('Your message have been sent.')
           outText.push('Thanks for the feedback!.')
@@ -172,12 +236,7 @@ angular.module('ng-terminal-example.command.implementations', ['ng-terminal-exam
         } else {
           outText.push('Available commands:')
           for (var i = 0; i < list.length; i++) {
-            var str = '  ' + list[i].command + '\t\t'
-            for (var j = 0; j < 3 && i + 1 < list.length; j++) {
-              var cmd = list[++i].command
-              str += cmd + (cmd.length > 6 ? '\t' : '\t\t')
-            }
-            outText.push(str)
+            outText.push(list[i].command + '\n')
           }
           outText.push('')
           outText.push("Enter 'help <command>' to get help for a particular command.")

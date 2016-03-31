@@ -145,7 +145,7 @@
                             });
 
                             if (suitableHandlers.length == 0)
-                                throw new Error("There is no suitable handler for that command.");
+                                throw new Error("The command you tried to execute isn't available in Free Tier! Consider registering at https://doselect.com/developers/signup . We don't ask for details about the tissue from your liver or your DNA Sequence!")
 
                             var h = suitableHandlers[0];
 
