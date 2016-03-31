@@ -1,8 +1,8 @@
 <!--
 
-"Can I see you?" Person 1 
-"No but I can pikachu." Person 2 (peek at you) 
-*Awkward silence* 
+"Can I see you?" Person 1
+"No but I can pikachu." Person 2 (peek at you)
+*Awkward silence*
 "Dude nice joe joke..." Person 1
 
 So Joe, If you ended up here thinking there should be something hidden, Meh! We\'re not obvious humans! Dig deeper!
@@ -108,7 +108,7 @@ So Joe, If you ended up here thinking there should be something hidden, Meh! We\
     <md-toolbar class="main-nav">
       <div class="md-toolbar-tools">
         <img src="/img/dws.svg" alt="DoSelect Web Services" class="dws-logo">
-        <h2 class="headline">
+        <h2 class="headline" hide show-gt-xs>
           <span>Your own byte of the Cloud <sup style="font-size: 45%">TM</sup> </span>
         </h2>
         <span flex></span>
@@ -116,9 +116,69 @@ So Joe, If you ended up here thinking there should be something hidden, Meh! We\
       </div>
     </md-toolbar>
 
-    <div ng-controller="terminalCtrl">
-      <terminal terminal-config="modern"></terminal>
-    </div>
+    <section class="page-wrapper">
+      <header class="md-whiteframe-1dp">
+        <h2 style="color: #666; font-weight: 2rem;">DoSelect Web Services</h2>
+        <h2 style="">Get an 8GB Linux instance, free!* </h2>
+        <ul>
+          <li>Deploy your apps securely on our infrastructure, built upon infrastructure of other companies we absolutely trust.</li>
+          <li>We support all technologies out of the box! Django-nut? Java-drinker? Spinning up your deployment is just a console away!</li>
+          <li>Use our properietary new DoSelect Web Services CLI<sup>TM</sup>, which closely mimics bash, and makes your life easy in general.</li>
+        </ul>
+        <div layout="row" layout-align="start center" style="padding: 0 8px;">
+          <h3 style="padding-right: 10px; color: #3F51B5">Reserve your instance, and get started today!</h3>
+          <md-button class="md-raised md-primary" ng-href="https://doselect.com/developers/signup?utm_source=dws">Register Now</md-button>
+        </div>
+        <p style="padding: 0 8px;">Or try out the live terminal below...</p>
+      </header>
+
+      <div ng-controller="terminalCtrl" class="md-whiteframe-1dp">
+        <terminal terminal-config="modern"></terminal>
+      </div>
+    </section>
+
+    <footer layout="column" class="md-whiteframe-1dp">
+        <div flex="" layout-fill="" class="page-wrapper" layout="row" layout-sm="column">
+            <div class="logo" layout="column" layout-aling="start start">
+                <div class="logo-wrapper">
+                    <img src="https://d3vcvbqfrwgr06.cloudfront.net/website/img/logo-gray-path.svg" alt="DoSelect">
+                </div>
+                <p>© 2016. All rights reserved.<br>DoSelect, Inc.</p>
+                <p>Made with <span style="color: red;">♥</span> in India.</p>
+            </div>
+            <div class="links" flex="" layout="row" layout-wrap="">
+
+                <ul flex="25" flex-sm="50" flex-xs="100">
+                    <li><a href="https://doselect.com/about">About</a></li>
+                    <li><a href="https://doselect.com/team/doselect/jobs">Jobs</a></li>
+                    <li><a href="http://blog.doselect.com" target="_blank">Blog</a></li>
+                    <li><a href="https://brandfolder.com/doselect" onclick="Brandfolder.showEmbed({brandfolder_id: 'doselect'});return false;" title="DoSelect logos and other brand assets">Press Kit</a></li>
+                    <li><a href="https://doselect.com/privacy">Privacy</a></li>
+                    <li><a href="https://doselect.com/tos">Terms of Service</a></li>
+                    <li><a href="https://doselect.com/cookie-policy">Cookie Policy</a></li>
+                </ul>
+                <ul flex="25" flex-sm="50" flex-xs="100">
+                    <li><a href="https://doselect.com/pricing">Pricing</a></li>
+                    <li><a href="https://doselect.com/technologies">Technologies</a></li>
+                    <li><a href="https://doselect.zendesk.com/hc/en-us" target="_blank">Help Center</a></li>
+                    <li><a href="https://doselect.com/teams/request-demo">Request Demo</a></li>
+                    <li><a href="https://doselect.com/contact">Contact</a></li>
+                </ul>
+                <ul flex="25" flex-sm="50" flex-xs="100">
+                    <li><a href="https://doselect.com/teams/signup?utm_source=public_pages&amp;utm_medium=footer&amp;utm_campaign=team_signup&amp;utm_content=footer_link">Create new team</a></li>
+                    <li><a href="https://doselect.com/developers/signup">Join as developer</a></li>
+                    <li><a href="https://doselect.com/hackathons">All hackathons</a></li>
+                    <li><a href="https://doselect.com/jobs">All jobs</a></li>
+                    <li><a href="https://doselect.com/lazylogin">Lazy Login</a></li>
+
+                </ul>
+                <ul flex="25" flex-sm="50" flex-xs="100">
+                  <li><a style="color: #2ecc71; font-weight: 700;" href="https://doselect.com/team/doselect/jobs">We're hiring!</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </footer>
 
     <!-- Body -->
 

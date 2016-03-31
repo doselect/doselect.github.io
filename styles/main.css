@@ -1,10 +1,21 @@
+body {
+  background: url('/img/clouds.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+html {
+  background: transparent;
+}
+
 button, html, input, select, textarea {
   font-family: 'Lato', 'Helvetica Neue', sans-serif;
 }
 
 .main-nav {
   background-color: #fdfdfd !important;
-  border-bottom: solid 2px #eee;
   color: #3F51B5 !important;
 }
 
@@ -21,4 +32,71 @@ button, html, input, select, textarea {
 
 .main-nav .headline {
   padding: 0 6px;
+}
+
+.page-wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 16px 16px;
+}
+
+header {
+  background: #fefefe;
+  padding: 64px 16px 32px;
+  margin-bottom: 16px;
+}
+
+header > h2 {
+  color: #3F51B5;
+font-weight: 300;
+font-size: 2.5rem;
+margin: 0;
+}
+
+header > ul {
+  color: #3d3c40;
+  list-style: none;
+  margin: 0;
+  padding: 16px 0;
+}
+
+sup {
+  font-size: 60%;
+}
+
+header > ul > li {
+  background: url("/img/check_googblue_24dp.png") no-repeat top left;
+line-height: 22px;
+margin-bottom: .7em;
+padding-left: 36px;
+font-size: 16px;
+}
+
+footer {
+  max-width: 1024px;
+  margin: 0 auto;
+  background: #FCFCFC;
+  color: #666;
+}
+
+footer .logo {
+    margin-right: 100px;
+    line-height: 1.6;
+}
+
+footer ul {
+  margin-top: 0;
+  list-style-type: none;
+  line-height: 2;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+footer ul li a:hover, footer ul li a:active {
+    border-bottom: solid 1px;
 }

@@ -1,5 +1,4 @@
 angular.module('dws', ['vtortola.ng-terminal', 'ngMaterial', 'LocalStorageModule', 'ng-terminal-example.command.tools', 'ng-terminal-example.command.implementations', 'ng-terminal-example.command.filesystem'])
-  
   .provider('$ga', function () {
     window['GoogleAnalyticsObject'] = 'ga'
     window['ga'] = window['ga'] || function () { (window['ga'].q = window['ga'].q || []).push(arguments) }
