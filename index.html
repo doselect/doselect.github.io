@@ -101,6 +101,10 @@ So Joe, If you ended up here thinking there should be something hidden, Meh! We\
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js">
       <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56fe0fa40e2477a8"></script>
+
+
   </head>
 
   <body>
@@ -112,6 +116,7 @@ So Joe, If you ended up here thinking there should be something hidden, Meh! We\
           <span>Your own byte of the Cloud <sup style="font-size: 45%">TM</sup> </span>
         </h2>
         <span flex></span>
+        <a style="color: #2ecc71; padding: 0 16px;" href="https://doselect.com/team/doselect/jobs">We're hiring!</a>
         <md-button class="md-raised md-primary" ng-href="https://doselect.com/developers/signup?utm_source=dws">Register Now</md-button>
       </div>
     </md-toolbar>
@@ -121,19 +126,35 @@ So Joe, If you ended up here thinking there should be something hidden, Meh! We\
         <h2 style="color: #666; font-weight: 2rem;">DoSelect Web Services</h2>
         <h2 style="">Get an 8GB Linux instance, free!* </h2>
         <ul>
-          <li>Deploy your apps securely on our infrastructure, built upon infrastructure of other companies we absolutely trust.</li>
+          <li>Deploy your apps securely on our infrastructure, built upon containers using unused resources by out partner companies.</li>
           <li>We support all technologies out of the box! Django-nut? Java-drinker? Spinning up your deployment is just a console away!</li>
           <li>Use our properietary new DoSelect Web Services CLI<sup>TM</sup>, which closely mimics bash, and makes your life easy in general.</li>
         </ul>
-        <div layout="row" layout-align="start center" style="padding: 0 8px;">
-          <h3 style="padding-right: 10px; color: #3F51B5">Reserve your instance, and get started today!</h3>
-          <md-button class="md-raised md-primary" ng-href="https://doselect.com/developers/signup?utm_source=dws">Register Now</md-button>
+        <div class="addthis_native_toolbox" style="padding-bottom: 16px;"></div>
+        <div style="margin: 0 -16px;background: #f0f0f0;padding: 10px;margin-bottom: -32px;">
+          <div layout="row" layout-align="center center" style="padding: 0 8px;">
+            <h3 style="padding-right: 10px; color: #3F51B5">Reserve your instance, and get started today!</h3>
+            <md-button class="md-raised md-primary" ng-href="https://doselect.com/developers/signup?utm_source=dws">Register Now</md-button>
+          </div>
         </div>
-        <p style="padding: 0 8px;">Or try out the live terminal below...</p>
       </header>
 
       <div ng-controller="terminalCtrl" class="md-whiteframe-1dp">
         <terminal terminal-config="modern"></terminal>
+      </div>
+
+      <div class="card md-whiteframe-1dp" style="line-height: 1.6;">
+        <h3>How it works</h3>
+        <p>
+          DoSelect Web Services (DWS) is the result of years of research into utilizing wasted compute resources on the cloud. We have built a unique,
+          completely secure and robust way of aggregating wasted cloud resource across our partner cloud companies, and  containerized for your convenience.
+          All you need to do is use the console and spawn a Linux instance in milliseconds, literally.
+        </p>
+        <p>
+          Why only Linux is supported? Because we love Linux and we think you should too! But we'll add support for more operating systems if we get more requests from
+          n00bs.
+        </p>
+        <img src="/img/platform.png" alt="Platform">
       </div>
     </section>
 
