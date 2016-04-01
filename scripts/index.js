@@ -31,7 +31,7 @@ angular.module('dws', ['vtortola.ng-terminal', 'ngMaterial', 'LocalStorageModule
   .controller('terminalCtrl', ['$scope', '$ga', 'commandBroker', '$rootScope', 'localStorageService',
     function ($scope, $ga, commandBroker, $rootScope, localStorageService) {
     console.log('Joe, If you ended up here thinking there should be something hidden, Meh! We\'re not obvious humans! Dig deeper!')
-    if (localStorageService.get('Ah! There you are!') == undefined) {
+    if (localStorageService.get('Ah! There you are!') === null) {
       localStorageService.set('Ah! There you are!', 'Check the next key')
       localStorageService.set('Come work with us!', 'https://doselect.com/job/doselect-f0n50-front-end-developer')
     }
